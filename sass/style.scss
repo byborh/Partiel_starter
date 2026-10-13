@@ -215,6 +215,9 @@ footer {
     margin-right: 120px;
     img {
       width: 100%;
+      &.dead {
+        filter: grayscale(100%);
+      }
     }
 
     figcaption {

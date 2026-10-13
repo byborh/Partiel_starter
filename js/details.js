@@ -34,13 +34,15 @@ function houseSection(house) {
 function renderCharacter(character) {
   const name = displayValue(character.name);
   const image = escapeHtml(character.image || DEFAULT_IMAGE);
+  // Strict check: an unknown status keeps the photo in colour.
+  const imageClass = character.alive === false ? "dead" : "";
 
   mainElement.innerHTML = `
     <section>
       <h3>${name}</h3>
       <div class="perso">
         <figure class="perso__left">
-          <img src="${image}" alt="${name}" />
+          <img class="${imageClass}" src="${image}" alt="${name}" />
           <figcaption>${displayValue(character.actor)}</figcaption>
         </figure>
         <div class="perso__right">
@@ -55,6 +57,9 @@ function renderCharacter(character) {
           <div>
             ${attribute("Patronus", displayValue(character.patronus))}
             ${attribute("Wand", displayWand(character.wand))}
+          </div>
+          <div>
+            ${attribute("Nicknames", displayValue(character.alternate_names.join(", ")))}
           </div>
         </div>
       </div>
