@@ -1,34 +1,22 @@
-const API_URL = "https://hp-api.onrender.com/api/characters";
-const CHARACTER_LIMIT = 20;
-// The troll replaces the photo when the API gives none.
-const DEFAULT_IMAGE = "./images/troll.jpg";
-
 const charactersElement = document.querySelector(".characters");
 const houseElements = document.querySelectorAll(".houses > div");
 
 let characters = [];
 let selectedHouse = null;
 
-// The API is external input: escape it before it goes into innerHTML.
-function escapeHtml(text) {
-  return text
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
-}
-
 function characterCard(character) {
   const name = escapeHtml(character.name || "Unknown");
   const image = escapeHtml(character.image || DEFAULT_IMAGE);
   // Without a house, the card gets no house class and its border stays gold.
   const houseClass = character.house ? escapeHtml(character.house.toLowerCase()) : "";
+  const detailsUrl = `details.html?id=${encodeURIComponent(character.id)}`;
 
   return `
     <div class="${houseClass}">
-      <img src="${image}" alt="${name}" />
-      <p>${name}</p>
+      <a href="${detailsUrl}">
+        <img src="${image}" alt="${name}" />
+        <p>${name}</p>
+      </a>
     </div>
   `;
 }
@@ -62,12 +50,11 @@ function selectHouse(house) {
 
 async function loadCharacters() {
   try {
-    const response = await fetch(API_URL);
+    const response = await fetch(`${API_URL}/characters`);
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
-    const data = await response.json();
-    characters = data.slice(0, CHARACTER_LIMIT);
+    characters = await response.json();
     renderCharacters(characters);
   } catch (error) {
     console.error("Cannot load the characters:", error);
