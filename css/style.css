@@ -112,8 +112,9 @@ footer p {
   width: 140px;
   height: 140px;
   text-align: center;
+  cursor: pointer;
 }
-.houses > div:hover {
+.houses > div:hover, .houses > div.active {
   background: var(--light);
 }
 .houses img {
@@ -137,6 +138,7 @@ footer p {
   border: 8px solid var(--gold);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   object-fit: cover;
+  transition: border-color 0.3s;
 }
 .characters p {
   text-align: center;
@@ -145,16 +147,16 @@ footer p {
 .characters a {
   text-decoration: none;
 }
-.characters .gryffindor img {
+.characters .gryffindor:hover img {
   border-color: var(--red);
 }
-.characters .slytherin img {
+.characters .slytherin:hover img {
   border-color: var(--green);
 }
-.characters .hufflepuff img {
+.characters .hufflepuff:hover img {
   border-color: var(--yellow);
 }
-.characters .ravenclaw img {
+.characters .ravenclaw:hover img {
   border-color: var(--blue);
 }
 
@@ -228,10 +230,34 @@ footer p {
   }
   .header__left {
     justify-content: flex-end;
+    flex-wrap: wrap;
   }
   .header__left img {
     display: block;
     height: 70px;
+    cursor: pointer;
+  }
+  .header--open {
+    flex-wrap: wrap;
+  }
+  .header--open .header__left {
+    display: contents;
+  }
+  .header--open .header__left img {
+    margin-left: auto;
+    align-self: center;
+  }
+  .header--open ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100vw;
+    margin-left: -5vw;
+    flex-shrink: 0;
+    padding: 10px 0;
+    background: #fff;
+    order: 1;
   }
 
   .houses {

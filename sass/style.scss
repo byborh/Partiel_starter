@@ -119,7 +119,9 @@ footer {
     width: 140px;
     height: 140px;
     text-align: center;
-    &:hover {
+    cursor: pointer;
+    &:hover,
+    &.active {
       background: var(--light);
     }
   }
@@ -145,6 +147,7 @@ footer {
     border: 8px solid var(--gold);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     object-fit: cover;
+    transition: border-color 0.3s;
   }
   p {
     text-align: center;
@@ -154,16 +157,16 @@ footer {
     text-decoration: none;
   }
 
-  .gryffindor img {
+  .gryffindor:hover img {
     border-color: var(--red);
   }
-  .slytherin img {
+  .slytherin:hover img {
     border-color: var(--green);
   }
-  .hufflepuff img {
+  .hufflepuff:hover img {
     border-color: var(--yellow);
   }
-  .ravenclaw img {
+  .ravenclaw:hover img {
     border-color: var(--blue);
   }
 }
@@ -245,9 +248,42 @@ footer {
 
     &__left {
       justify-content: flex-end;
+      flex-wrap: wrap;
       img {
         display: block;
         height: 70px;
+        cursor: pointer;
+      }
+    }
+
+    // menu.js adds this class when the burger is clicked.
+    &--open {
+      flex-wrap: wrap;
+
+      // The wrapper leaves the layout: the menu becomes a header item and can take a full line.
+      .header__left {
+        display: contents;
+      }
+
+      .header__left img {
+        margin-left: auto;
+        align-self: center;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        // The header is 90% wide and centered: 100vw and -5vw reach both screen edges.
+        width: 100vw;
+        margin-left: -5vw;
+        // Without this, flex shrinks the menu back to the 90% line.
+        flex-shrink: 0;
+        padding: 10px 0;
+        background: #fff;
+        // The links go below the burger, not before it.
+        order: 1;
       }
     }
   }
