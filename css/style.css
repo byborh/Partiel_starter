@@ -142,6 +142,30 @@ footer p {
   text-align: center;
   color: var(--gold);
 }
+.characters a {
+  text-decoration: none;
+}
+.characters .gryffindor img {
+  border-color: var(--red);
+}
+.characters .slytherin img {
+  border-color: var(--green);
+}
+.characters .hufflepuff img {
+  border-color: var(--yellow);
+}
+.characters .ravenclaw img {
+  border-color: var(--blue);
+}
+
+.houses > div,
+.characters > div {
+  transition: transform 0.3s;
+}
+.houses > div:hover,
+.characters > div:hover {
+  transform: scale(1.1);
+}
 
 /* PAGE PERSO */
 .page_perso h3 {
@@ -156,11 +180,15 @@ footer p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
   width: 100%;
 }
 .page_perso .perso__right > div {
   display: flex;
   justify-content: space-around;
+}
+.page_perso .perso__right > div > div {
+  flex: 1;
 }
 .page_perso .perso__right p.attr {
   font-weight: bold;
@@ -184,6 +212,10 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 30px;
+}
+.page_perso .house__perso img {
+  width: 200px;
 }
 
 @media screen and (max-width: 425px) {
@@ -205,6 +237,16 @@ footer p {
   .houses {
     flex-direction: column;
     align-items: center;
+  }
+
+  .page_perso .perso {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
+  .page_perso figure {
+    margin-right: 0;
+    margin-bottom: 30px;
   }
 }
 

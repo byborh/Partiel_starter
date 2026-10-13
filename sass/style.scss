@@ -150,6 +150,30 @@ footer {
     text-align: center;
     color: var(--gold);
   }
+  a {
+    text-decoration: none;
+  }
+
+  .gryffindor img {
+    border-color: var(--red);
+  }
+  .slytherin img {
+    border-color: var(--green);
+  }
+  .hufflepuff img {
+    border-color: var(--yellow);
+  }
+  .ravenclaw img {
+    border-color: var(--blue);
+  }
+}
+
+.houses > div,
+.characters > div {
+  transition: transform 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 /* PAGE PERSO */
@@ -166,10 +190,15 @@ footer {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      gap: 20px;
       width: 100%;
       & > div {
         display: flex;
         justify-content: space-around;
+        // Equal width columns keep the attributes aligned from one row to the next.
+        & > div {
+          flex: 1;
+        }
       }
 
       p.attr {
@@ -199,6 +228,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 30px;
+    img {
+      width: 200px;
+    }
   }
 }
 
@@ -222,5 +255,18 @@ footer {
   .houses {
     flex-direction: column;
     align-items: center;
+  }
+
+  .page_perso {
+    .perso {
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+    }
+
+    figure {
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
   }
 }
