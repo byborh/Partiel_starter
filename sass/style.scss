@@ -39,8 +39,7 @@ main {
     text-transform: uppercase;
     border-bottom: 3px solid black;
     text-align: center;
-    color: var(--DarkGrey, #3a3a3a);
-    text-align: center;
+    color: var(--darkGrey);
     font-family: Rubik;
     font-size: 32px;
     font-style: normal;
@@ -50,7 +49,7 @@ main {
   }
 
   h2 {
-    color: var(--DarkGrey, #3a3a3a);
+    color: var(--darkGrey);
     text-align: center;
     font-family: Roboto;
     font-size: 40px;
@@ -74,13 +73,15 @@ footer {
 }
 
 .header {
-  h1 {
-    margin-bottom: 20px;
-  }
   display: flex;
   max-width: 1024px;
   margin: auto;
   margin-top: 20px;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
   &__right img {
     height: 100px;
     margin-right: 20px;
@@ -88,6 +89,9 @@ footer {
 
   &__left {
     width: 100%;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
     ul {
       display: flex;
       justify-content: space-between;
@@ -116,7 +120,7 @@ footer {
     height: 140px;
     text-align: center;
     &:hover {
-      background: #fff6e6;
+      background: var(--light);
     }
   }
 
@@ -138,14 +142,13 @@ footer {
     width: 150px;
     height: 150px;
     border-radius: 150px;
-    border: 8px solid var(--Gold, #b99049);
-    background: url(<path-to-image>), lightgray -1.24px 0px / 101.653% 141.566% no-repeat;
+    border: 8px solid var(--gold);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     object-fit: cover;
   }
   p {
     text-align: center;
-    color: var(--Gold, #b99049);
+    color: var(--gold);
   }
 }
 
@@ -200,18 +203,17 @@ footer {
 }
 
 @media screen and (max-width: 425px) {
-  header {
+  .header {
     width: 90%;
     h1,
     ul {
-      display: none !important;
+      display: none;
     }
 
-    .header__left {
-      display: flex;
+    &__left {
       justify-content: flex-end;
       img {
-        display: block !important;
+        display: block;
         height: 70px;
       }
     }
@@ -219,6 +221,6 @@ footer {
 
   .houses {
     flex-direction: column;
-    align-content: space-around;
+    align-items: center;
   }
 }

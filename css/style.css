@@ -37,8 +37,7 @@ main h3 {
   text-transform: uppercase;
   border-bottom: 3px solid black;
   text-align: center;
-  color: var(--DarkGrey, #3a3a3a);
-  text-align: center;
+  color: var(--darkGrey);
   font-family: Rubik;
   font-size: 32px;
   font-style: normal;
@@ -47,7 +46,7 @@ main h3 {
   padding-top: 10px;
 }
 main h2 {
-  color: var(--DarkGrey, #3a3a3a);
+  color: var(--darkGrey);
   text-align: center;
   font-family: Roboto;
   font-size: 40px;
@@ -115,7 +114,7 @@ footer p {
   text-align: center;
 }
 .houses > div:hover {
-  background: #fff6e6;
+  background: var(--light);
 }
 .houses img {
   width: 121px;
@@ -135,14 +134,13 @@ footer p {
   width: 150px;
   height: 150px;
   border-radius: 150px;
-  border: 8px solid var(--Gold, #b99049);
-  background: url(<path-to-image>), lightgray -1.24px 0px/101.653% 141.566% no-repeat;
+  border: 8px solid var(--gold);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   object-fit: cover;
 }
 .characters p {
   text-align: center;
-  color: var(--Gold, #b99049);
+  color: var(--gold);
 }
 
 /* PAGE PERSO */
@@ -189,25 +187,24 @@ footer p {
 }
 
 @media screen and (max-width: 425px) {
-  header {
+  .header {
     width: 90%;
   }
-  header h1,
-header ul {
-    display: none !important;
+  .header h1,
+.header ul {
+    display: none;
   }
-  header .header__left {
-    display: flex;
+  .header__left {
     justify-content: flex-end;
   }
-  header .header__left img {
-    display: block !important;
+  .header__left img {
+    display: block;
     height: 70px;
   }
 
   .houses {
     flex-direction: column;
-    align-content: space-around;
+    align-items: center;
   }
 }
 
