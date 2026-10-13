@@ -11,3 +11,8 @@ function escapeHtml(text) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 }
+
+// Strict check: an unknown status keeps the photo in colour.
+function deadClass(character) {
+  return character.alive === false ? "dead" : "";
+}

@@ -32,9 +32,25 @@
           <div data-house="Ravenclaw"><img src="./images/logo/Ravenclaw.png" alt="Ravenclaw" /></div>
         </div>
       </section>
+      <div class="toolbar">
+        <input class="toolbar__search" type="search" placeholder="Search by name" aria-label="Search by name" />
+        <div class="toolbar__group">
+          <button type="button" data-sort="name">A - Z</button>
+          <button type="button" data-sort="age">Age</button>
+        </div>
+        <div class="toolbar__group">
+          <button type="button" data-status="all">All</button>
+          <button type="button" data-status="alive">Alive</button>
+          <button type="button" data-status="dead">Dead</button>
+        </div>
+      </div>
       <section>
-        <h3>Characters</h3>
-        <div class="characters"></div>
+        <h3>Students</h3>
+        <div class="characters" id="students"></div>
+      </section>
+      <section>
+        <h3>Staff</h3>
+        <div class="characters" id="staff"></div>
       </section>
     </main>
     <footer>

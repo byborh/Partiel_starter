@@ -160,6 +160,41 @@ footer p {
   border-color: var(--blue);
 }
 
+.dead {
+  filter: grayscale(100%);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 30px;
+}
+.toolbar__group {
+  display: flex;
+  gap: 5px;
+}
+.toolbar__search, .toolbar button {
+  font-family: "Rubik";
+  font-size: 16px;
+  padding: 8px 16px;
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  background: #fff;
+  color: var(--darkGrey);
+}
+.toolbar__search {
+  min-width: 220px;
+}
+.toolbar button {
+  cursor: pointer;
+}
+.toolbar button:hover, .toolbar button.active {
+  background: var(--gold);
+  color: #fff;
+}
+
 .houses > div,
 .characters > div {
   transition: transform 0.3s;
@@ -201,9 +236,6 @@ footer p {
 }
 .page_perso figure img {
   width: 100%;
-}
-.page_perso figure img.dead {
-  filter: grayscale(100%);
 }
 .page_perso figure figcaption {
   background: rgba(255, 255, 255, 0.5);

@@ -171,6 +171,48 @@ footer {
   }
 }
 
+// Dead characters: on the home cards and on the details page.
+.dead {
+  filter: grayscale(100%);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 30px;
+
+  &__group {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__search,
+  button {
+    font-family: "Rubik";
+    font-size: 16px;
+    padding: 8px 16px;
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    background: #fff;
+    color: var(--darkGrey);
+  }
+
+  &__search {
+    min-width: 220px;
+  }
+
+  button {
+    cursor: pointer;
+    &:hover,
+    &.active {
+      background: var(--gold);
+      color: #fff;
+    }
+  }
+}
+
 .houses > div,
 .characters > div {
   transition: transform 0.3s;
@@ -215,9 +257,6 @@ footer {
     margin-right: 120px;
     img {
       width: 100%;
-      &.dead {
-        filter: grayscale(100%);
-      }
     }
 
     figcaption {
